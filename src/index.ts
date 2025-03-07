@@ -8,7 +8,7 @@ const MAX_CHECKPOINT_LAG = 30 * 60 * 1000; // 30 minutes
 
 export function getProvider() {
     return new RpcProvider({
-        nodeUrl: 'https://starknet-mainnet.public.blastapi.io'
+        nodeUrl: 'https://free-rpc.nethermind.io/mainnet-juno/'
     })
 }
 
@@ -97,4 +97,7 @@ async function main() {
     }
 }
 
-main().catch(console.error);
+main().catch((err: any) => {
+    console.error(err);
+    process.exit(1); // exit with error
+});
